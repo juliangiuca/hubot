@@ -2,18 +2,15 @@
 #   Do a whois lookup for a .com, .net, .org and .io domain
 #
 # Commands:
-#   hubot com <word> - reply back with the availability of the .com
-#   hubot net <word> - reply back with the availability of the .net
-#   hubot org <word> - reply back with the availability of the .org
-#   hubot io <word> - reply back with the availability of the .io
+#   hubot lookup <domain>.<tld> - reply back with the availability of the .tld or .com
 
 Whoisjs = require("whoisjs").whois
 who = new Whoisjs()
 
 module.exports = (robot) ->
 
-  robot.respond /(com|net|org|io) (.*)$/i, (msg) ->
-    domain = msg.match[2] + "." + msg.match[1]
+  robot.respond /LOOKUP (\w+)\.?(\w{0,})$/i, (msg) ->
+    domain = msg.match[1] + "." + (msg.match[2] || "com")
     who.query domain, (response) ->
       if response.available()
         msg.send domain + " is available"
