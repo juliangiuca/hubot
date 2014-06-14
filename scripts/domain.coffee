@@ -1,16 +1,19 @@
 # Description:
-#   Do a whois lookup for a .com domain
+#   Do a whois lookup for a .com, .net, .org and .io domain
 #
 # Commands:
-#   hubot domain <word> - reply back with the availability of the .com
+#   hubot com <word> - reply back with the availability of the .com
+#   hubot net <word> - reply back with the availability of the .net
+#   hubot org <word> - reply back with the availability of the .org
+#   hubot io <word> - reply back with the availability of the .io
 
 Whoisjs = require("whoisjs").whois
+who = new Whoisjs()
 
 module.exports = (robot) ->
 
-  robot.respond /DOMAIN (.*)$/i, (msg) ->
-    who = new Whoisjs()
-    domain = msg.match[1] + ".com"
+  robot.respond /(com|net|org|io) (.*)$/i, (msg) ->
+    domain = msg.match[2] + "." + msg.match[1]
     who.query domain, (response) ->
       if response.available()
         msg.send domain + " is available"
@@ -19,6 +22,4 @@ module.exports = (robot) ->
         msg.send domain + " is unavailable"
 
       else
-        msg.send "Something broktd"
-
-
+        msg.send "Your request for " + domain + " error'd out. You're probably doing somethung dumb."
