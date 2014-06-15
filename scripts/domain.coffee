@@ -11,6 +11,7 @@ module.exports = (robot) ->
 
   robot.respond /LOOKUP (\w+)\.?(\w{0,})$/i, (msg) ->
     domain = msg.match[1] + "." + (msg.match[2] || "com")
+    console.log("looking up :" + domain)
     who.query domain, (response) ->
       if response.available()
         msg.send domain + " is available"
