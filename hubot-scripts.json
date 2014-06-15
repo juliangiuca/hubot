@@ -1,1 +1,5 @@
-["redis-brain.coffee", "shipit.coffee"]
+["redis-brain.coffee", "shipit.coffee", "aww.coffee", "archer.coffee", 
+  "bluebottle.coffee", "bookmark.coffee", "cowsay.coffee", "fml.coffee", "gorbypuff.coffee",
+  "gosling.coffee", "grumpycat.coffee", "hackernews.coffee", "itcrowd.coffee", "kittens.coffee",
+  "npm.coffee", "truckstopsf.coffee"
+  ]
