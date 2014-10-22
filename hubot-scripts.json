@@ -1,4 +1,4 @@
 ["redis-brain.coffee", "shipit.coffee", "aww.coffee", 
   "fml.coffee", "gorbypuff.coffee",
   "grumpycat.coffee", "hackernews.coffee", "kittens.coffee",
-  "npm.coffee" ]
+  "npm.coffee", "weather.coffee" ]
